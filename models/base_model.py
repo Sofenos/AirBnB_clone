@@ -10,7 +10,6 @@ import models
 DATE_IOS987_FF = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-
 class BaseModel:
     """
     BaseModel class
@@ -29,6 +28,7 @@ class BaseModel:
         to_dict(): returns a dictionary containing all keys/values of the
         BaseModel instance
     """
+
     def __init__(self, *args, **kwargs):
         """
         This code initializes a BaseModel instance with optional "id", "created_at", and "updated_at" attributes .
@@ -50,8 +50,6 @@ class BaseModel:
             # Add a call to the new(self) method on storage
             models.storage.new(self)
 
-    
-
     def save(self):
         """
         Updates the updated_at attribute with the current datetime
@@ -60,8 +58,7 @@ class BaseModel:
             None
         """
         self.updated_at = datetime.now()
-        models.storage.save() 
-
+        models.storage.save()
 
     def to_dict(self):
         """
@@ -78,9 +75,8 @@ class BaseModel:
         obj_dict["created_at"] = self.created_at.isoformat()
         obj_dict["updated_at"] = self.updated_at.isoformat()
 
-        return obj_dict    
-    
-    
+        return obj_dict
+
     def __str__(self):
         """
         Returns the string representation of the BaseModel instance"
@@ -90,6 +86,3 @@ class BaseModel:
         """
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                      self.__dict__)
-
-    
-

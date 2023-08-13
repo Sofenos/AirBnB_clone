@@ -45,6 +45,7 @@ class TestStateDocs(unittest.TestCase):
 
 class TestStateFunctionality(unittest.TestCase):
     """Test the functionality of the State class"""
+
     def test_subclass_of_BaseModel(self):
         """Test that State is a subclass of BaseModel"""
         state_instance = STATE()
@@ -76,13 +77,16 @@ class TestStateFunctionality(unittest.TestCase):
         self.assertEqual(new_dict["__class__"], "State")
         self.assertEqual(type(new_dict["created_at"]), str)
         self.assertEqual(type(new_dict["updated_at"]), str)
-        self.assertEqual(new_dict["created_at"], s.created_at.strftime(time_format))
-        self.assertEqual(new_dict["updated_at"], s.updated_at.strftime(time_format))
+        self.assertEqual(new_dict["created_at"],
+                         s.created_at.strftime(time_format))
+        self.assertEqual(new_dict["updated_at"],
+                         s.updated_at.strftime(time_format))
 
     def test_string_representation(self):
         """Test that the str method provides the correct output"""
         state_instance = STATE()
-        expected_string = "[State] ({}) {}".format(state_instance.id, state_instance.__dict__)
+        expected_string = "[State] ({}) {}".format(
+            state_instance.id, state_instance.__dict__)
         self.assertEqual(expected_string, str(state_instance))
 
 

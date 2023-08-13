@@ -26,7 +26,7 @@ class TestPlaceDocs(unittest.TestCase):
                              "{:s} method needs a docstring".format(function[0]))
             self.assertTrue(len(function[1].__doc__) >= 1,
                             "{:s} method needs a docstring".format(function[0]))
-            
+
     def test_place_module_docstring(self):
         """Test for the place.py module docstring"""
         self.assertIsNot(place.__doc__, None,
@@ -129,8 +129,10 @@ class TestPlaceAttributes(unittest.TestCase):
         self.assertEqual(new_dict["__class__"], "Place")
         self.assertEqual(type(new_dict["created_at"]), str)
         self.assertEqual(type(new_dict["updated_at"]), str)
-        self.assertEqual(new_dict["created_at"], p.created_at.strftime(time_format))
-        self.assertEqual(new_dict["updated_at"], p.updated_at.strftime(time_format))
+        self.assertEqual(new_dict["created_at"],
+                         p.created_at.strftime(time_format))
+        self.assertEqual(new_dict["updated_at"],
+                         p.updated_at.strftime(time_format))
 
     def test_latitude_attribute_exists(self):
         """Test Place has the 'latitude' attribute, and it's a float == 0.0"""
@@ -155,4 +157,3 @@ class TestPlaceAttributes(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -37,8 +37,10 @@ class TestAmenityAttributes(unittest.TestCase):
         self.assertEqual(new_dict["__class__"], "Amenity")
         self.assertEqual(type(new_dict["created_at"]), str)
         self.assertEqual(type(new_dict["updated_at"]), str)
-        self.assertEqual(new_dict["created_at"], am.created_at.strftime(time_format))
-        self.assertEqual(new_dict["updated_at"], am.updated_at.strftime(time_format))
+        self.assertEqual(new_dict["created_at"],
+                         am.created_at.strftime(time_format))
+        self.assertEqual(new_dict["updated_at"],
+                         am.updated_at.strftime(time_format))
 
     def test_is_subclass_of_base_model(self):
         """Test that Amenity is a subclass of BaseModel"""
@@ -53,6 +55,7 @@ class TestAmenityAttributes(unittest.TestCase):
         amenity = AMENITY()
         string = "[Amenity] ({}) {}".format(amenity.id, amenity.__dict__)
         self.assertEqual(string, str(amenity))
+
 
 class TestAmenityInstantiation(unittest.TestCase):
     """Tests for instantiating the Amenity class"""
@@ -87,4 +90,3 @@ class TestAmenityInstantiation(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

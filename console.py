@@ -132,8 +132,6 @@ class HBNBCommand(cmd.Cmd):
         new_inst.save()
         print(new_inst.id)
 
-    
-
     def do_destroy(self, arg):
         """
         Deletes an instance based on the class name and id (save the change
@@ -164,8 +162,6 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
         else:
             print("** no instance found **")
-
-
 
     def do_show(self, arg):
         """
@@ -307,7 +303,7 @@ class HBNBCommand(cmd.Cmd):
 
         Usage: <class name>.count()
 
-        
+
         """
         counter = 0
         objects_dict = storage.all()
@@ -319,4 +315,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-

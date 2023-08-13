@@ -59,7 +59,7 @@ class TestFileStorageMethods(unittest.TestCase):
     def tear_down_class(cls):
         os.remove("test_file.json")
         models.storage._FileStorage__file_path = cls.backup_file_path
-    
+
     def test_new_with_None(self):
         with self.assertRaises(AttributeError):
             models.storage.new(None)
@@ -127,7 +127,6 @@ class TestFileStorageMethods(unittest.TestCase):
     def test_new_with_args(self):
         with self.assertRaises(TypeError):
             models.storage.new(BaseModel(), 1)
-    
 
     def test_save_with_arg(self):
         with self.assertRaises(TypeError):
@@ -170,4 +169,3 @@ class TestFileStorageMethods(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -31,6 +31,7 @@ class TestBaseModelInstantiation(unittest.TestCase):
     def test_instance_stored_in_objects(self):
         self.assertIn(BaseModel(), models.storage.all().values())
 
+
 class TestBaseModelToDict(unittest.TestCase):
     """Tests for the to_dict method of the BaseModel class."""
 
@@ -100,4 +101,3 @@ class TestBaseModelSave(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
