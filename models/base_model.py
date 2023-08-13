@@ -2,10 +2,13 @@
 
 """BaseModel class module"""
 
-from uuid import uuid4
-from datetime import datetime
 
-DATE_ISO8601_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
+from datetime import datetime
+from uuid import uuid4
+import models
+
+DATE_IOS987_FF = "%Y-%m-%dT%H:%M:%S.%f"
+
 
 
 class BaseModel:
@@ -28,21 +31,9 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         """
-        Initializes a BaseModel instance
-
-        Args:
-            *args: unused
-            **kwargs: keyword arguments passed to the constructor
-
-        Keyword Args:
-            id (str): unique id generated for the BaseModel instance
-            created_at (datetime): datetime object representing the time the
-            BaseModel instance was created
-            updated_at (datetime): datetime object representing the time the
-            BaseModel instance was updated
-
-        Returns:
-            None
+        This code initializes a BaseModel instance with optional "id", "created_at", and "updated_at" attributes .
+          Unused *args allow for future expansion.
+          It returns None. Suitable for Visual Studio Code.
         """
         if kwargs:
             for key in kwargs:
@@ -50,21 +41,16 @@ class BaseModel:
                     setattr(self, key, kwargs[key])
                 if key == "created_at" or key == "updated_at":
                     setattr(self, key, datetime.strptime(
-                        kwargs[key], DATE_ISO8601_FORMAT))
+                        kwargs[key], DATE_IOS987_FF))
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
 
-    def __str__(self):
-        """
-        Returns the string representation of the BaseModel instance"
+            # Add a call to the new(self) method on storage
+            models.storage.new(self)
 
-        Returns:
-            str: string representation of the BaseModel instance
-        """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
-                                     self.__dict__)
+    
 
     def save(self):
         """
@@ -74,6 +60,8 @@ class BaseModel:
             None
         """
         self.updated_at = datetime.now()
+        models.storage.save() 
+
 
     def to_dict(self):
         """
@@ -90,4 +78,18 @@ class BaseModel:
         obj_dict["created_at"] = self.created_at.isoformat()
         obj_dict["updated_at"] = self.updated_at.isoformat()
 
-        return obj_dict
+        return obj_dict    
+    
+    
+    def __str__(self):
+        """
+        Returns the string representation of the BaseModel instance"
+
+        Returns:
+            str: string representation of the BaseModel instance
+        """
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)
+
+    
+
