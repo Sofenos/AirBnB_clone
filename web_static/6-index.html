@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airbnb</title>
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <link rel="stylesheet" href="styles/4-common.css">
+  <link rel="stylesheet" href="styles/3-header.css">
+  <link rel="stylesheet" href="styles/3-footer.css">
+  <link rel="stylesheet" href="styles/6-filters.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo"></div>
+  </header>
+  <div class="container">
+    <section class="filters">
+      <div class="locations" onmouseover="showPopover('locations')" onmouseout="hidePopover('locations')">
+        <h3>States</h3>
+        <h4>California, Arizona...</h4>
+        <ul class="popover" id="locations-popover">
+          <li>
+            <h2>Casablanca</h2>
+            <ul>
+              <li>
+                <h4>Anfa</h4>
+              </li>
+              <li>
+                <h4>Derb Sultan</h4>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h2>Rabat</h2>
+            <ul>
+              <li>
+                <h4>Agdal Riyad</h4>
+              </li>
+              <li>
+                <h4>El Youssoufiya</h4>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="amenities" onmouseover="showPopover('amenities')" onmouseout="hidePopover('amenities')">
+        <h3>Amenities</h3>
+        <h4>Internet, Bed, First class...</h4>
+        <div class="popover" id="amenities-popover">
+
+          <h4>Hot Gamme</h4>
+          <h4>internet</h4>
+          <h4>bed</h4>
+        </div>
+      </div>
+      <button class="search-button">Search</button>
+    </section>
+  </div>
+  <footer>Best School</footer>
+
+
+  </script>
+</body>
+
+</html>

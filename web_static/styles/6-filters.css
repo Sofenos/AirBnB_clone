@@ -1,0 +1,120 @@
+.filters {
+  color: rgb(0, 0, 0);
+  height: 70px;
+  width: 100%;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30px;
+}
+
+.locations,
+.amenities {
+  height: 100%;
+  width: 25%;
+  border-right: 1px solid #DDDDDD;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.locations h3,
+.amenities h3 {
+  font-weight: 600;
+}
+
+.locations h4,
+.amenities h4 {
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: -15px;
+}
+
+.search-button {
+  font-size: 18px;
+  background-color: #FF5A5F;
+  color: #FFFFFF;
+  height: 48px;
+  width: 20%;
+  border: 1px solid #FF5A5F;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search-button:hover {
+  opacity: 1;
+}
+
+.filters .search-button {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.popover {
+  display: none;
+  position: fixed;
+  background-color: #FAFAFA;
+  width: 17%;
+  border: 1px solid #DDDDDD;
+  border-radius: 1px;
+  list-style: none;
+  padding-left: 20px;
+  padding-right: px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow */
+  z-index: 10;
+  margin-top: 70px;
+
+}
+
+/* Style the h2 tag for state name */
+.popover h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px;
+  color: #333;
+  /* Darken the text color */
+}
+
+/* Style the h4 tag for city name */
+.popover h4 {
+  font-size: 14px;
+  font-weight: 40;
+  margin: 5px 0;
+  padding-left: 20px;
+  color: #666;
+  /* Slightly darker text color */
+}
+
+/* Apply the styles to the locations and amenities filters */
+.locations:hover .popover,
+.amenities:hover .popover {
+  display: block;
+  /* Show the dropdown on hover */
+}
+
+.amenities:hover h3 {
+  padding-left: 0px;
+  /* Increase the padding on hover */
+}
+
+.popover ul,
+.popover li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the li tags for locations popover */
+.popover li {
+  padding: 8px;
+  border-top: 1px solid #dddddd;
+}
